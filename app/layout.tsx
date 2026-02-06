@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description: 'Portfolio of Ranilo John, a Computer Engineering student specializing in Cybersecurity, Networking, and web development.',
     images: [
       {
-        url: '/images/profile.png',
+        url: '/images/Python.jpg',
         width: 800,
         height: 600,
       }
