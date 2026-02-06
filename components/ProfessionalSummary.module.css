@@ -1,0 +1,55 @@
+.section {
+    background-color: var(--surface);
+    position: relative;
+}
+
+.card {
+    background: var(--background);
+    border: 1px solid var(--border);
+    padding: 40px;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.text {
+    font-size: 1.1rem;
+    color: var(--foreground);
+    margin-bottom: 20px;
+    line-height: 1.8;
+    opacity: 0.9;
+}
+
+.stats {
+    display: flex;
+    margin-top: 40px;
+    gap: 60px;
+    border-top: 1px solid var(--border);
+    padding-top: 30px;
+}
+
+.statItem {
+    display: flex;
+    flex-direction: column;
+}
+
+.statNumber {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.statLabel {
+    font-size: 0.9rem;
+    color: var(--muted, #a1a1aa);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 600px) {
+    .stats {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
