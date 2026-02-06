@@ -5,8 +5,19 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Portfolio | Professional Developer',
-  description: 'Portfolio and Resume of a Professional Developer',
+  title: 'Ranilo John | Cybersecurity & IT Portfolio',
+  description: 'Portfolio of Ranilo John, a Computer Engineering student specializing in Cybersecurity, Networking, and web development.',
+  openGraph: {
+    title: 'Ranilo John | Cybersecurity & IT Portfolio',
+    description: 'Portfolio of Ranilo John, a Computer Engineering student specializing in Cybersecurity, Networking, and web development.',
+    images: [
+      {
+        url: '/images/profile.png',
+        width: 800,
+        height: 600,
+      }
+    ]
+  }
 };
 
 export default function RootLayout({
