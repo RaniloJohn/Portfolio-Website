@@ -6,7 +6,7 @@ const featuredProjects = [
         title: "WorkLearn",
         category: "Web Application",
         description: "A website application like LinkedIn together with Resume Maker and IQ Test tailored for Students",
-        image: "/images/worklearn.png",
+        image: "/images/WorkLearn.png",
         link: "https://github.com/RaniloJohn/WORKLEARN-2.0"
     },
     {
