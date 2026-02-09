@@ -30,9 +30,9 @@ const certifications = [
 
 const ongoingCertifications = [
     {
-        title: "Currently nothing ongoing",
-        issuer: "N/A",
-        status: "Still looking for Certifications",
+        title: "CCNA Cybersecurity (CyberOps Associate)",
+        issuer: "Cisco",
+        status: "Ongoing, Exam Take - May",
         image: "/images/certification.png"
     }
 ];
