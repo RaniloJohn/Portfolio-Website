@@ -16,7 +16,13 @@ const featuredProjects = [
         image: "/images/Python.jpg",
         link: "#"
     },
-
+    {
+        title: "COESS-Networks",
+        category: "Network Project",
+        description: "Network configurations and topologies repository.",
+        image: "/images/project1.png",
+        link: "https://github.com/RaniloJohn/COESS-Networks"
+    }
 ];
 
 const labProjects = [
@@ -33,6 +39,13 @@ const labProjects = [
         description: "Compilation of laboratory activities from UE-Caloocan Computer Networks Subject, Implementing and Designing Infrastructures like a Network Engineer.",
         image: "/images/project1.png",
         link: "https://drive.google.com/drive/folders/1qVXQCFr8HLc4iQluPlPP7JUiXtKvFKSL?usp=sharing"
+    },
+    {
+        title: "SOC Laboratory",
+        category: "Security Operations",
+        description: "Security Operations Center laboratory environment.",
+        image: "/images/project1.png",
+        link: "#"
     }
 ];
 

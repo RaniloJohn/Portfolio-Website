@@ -14,7 +14,7 @@ const ProfessionalSummary = () => {
                     </p>
                     <div className={styles.stats}>
                         <div className={styles.statItem}>
-                            <span className={styles.statNumber}>7 Months</span>
+                            <span className={styles.statNumber}>9 Months</span>
                             <span className={styles.statLabel}> Studying Cybersecurity</span>
                         </div>
                         <div className={styles.statItem}>
