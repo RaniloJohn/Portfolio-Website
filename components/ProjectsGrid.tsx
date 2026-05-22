@@ -3,23 +3,37 @@ import styles from './ProjectsGrid.module.css';
 
 const featuredProjects = [
     {
+        title: "COESS Live Portal",
+        category: "Web Application",
+        description: "The official web portal for the Computer Engineering Students' Society (COESS) at the University of the East - Caloocan, offering a hub for student registrations, event announcements, and organization resources.",
+        image: "/images/coess_live.png",
+        link: "https://www.coess.live"
+    },
+    {
         title: "WorkLearn",
         category: "Web Application",
-        description: "A website application like LinkedIn together with Resume Maker and IQ Test tailored for Students",
+        description: "A career networking and learning platform tailored for students, featuring resume-making automations, student portfolios, and interactive IQ assessment tests.",
         image: "/images/WorkLearn.png",
         link: "https://github.com/RaniloJohn/WORKLEARN-2.0"
     },
     {
+        title: "IM Ticketing System",
+        category: "Web Application",
+        description: "An Incident Management Ticketing System built to streamline IT operations. Features status dashboards, ticket priorities, service agent queues, and resolution logging.",
+        image: "/images/project1.png",
+        link: "https://github.com/RaniloJohn/IM-Ticketing-System"
+    },
+    {
         title: "Certificate Automator",
-        category: "Python Application",
-        description: "Automation tool prepares to generate and email personalized certificates using Python, supporting data from Google Sheets or CSVs.",
+        category: "Python Automation",
+        description: "Automation tool designed to dynamically generate and email personalized certificates using Python, extracting spreadsheet data from Google Sheets or CSV files.",
         image: "/images/Python.jpg",
         link: "#"
     },
     {
         title: "COESS-Networks",
-        category: "Network Project",
-        description: "Network configurations and topologies repository.",
+        category: "Network Infrastructure",
+        description: "A repository of network topologies and routing configurations demonstrating protocols, subnetting designs, and traffic shaping labs.",
         image: "/images/project1.png",
         link: "https://github.com/RaniloJohn/COESS-Networks"
     }
@@ -27,25 +41,25 @@ const featuredProjects = [
 
 const labProjects = [
     {
+        title: "SOC Homelab Analysis",
+        category: "Security Operations & Analysis",
+        description: "A detailed forensic analysis and log auditing project utilizing a virtualized Security Operations Center homelab. Demonstrates telemetry capture, SIEM alerting, and defense playbook analysis.",
+        image: "/images/wazuh_logo.png",
+        link: "https://coda.io/d/_d9fkctI-GVS/SOC-Homelab-Analysis_su3rJakN"
+    },
+    {
         title: "Network Security Simulation",
         category: "Security Simulation",
-        description: "This project demonstrates the design and analysis of a virtualized network environment to simulate real-world cyberattacks. By engineering a topology with GNS3 and VirtualBox, I conducted network reconnaissance and a Denial of Service (DoS) attack to analyze traffic behavior and system failure points using industry-standard tools.",
+        description: "Design and deployment of a virtualized network environment engineered inside GNS3 and VirtualBox to execute, analyze, and defend against network reconnaissance and DDoS attacks.",
         image: "/images/networksimulation.png",
         link: "https://github.com/RaniloJohn/Network-Security-Simulation"
     },
     {
         title: "Cisco Packet Tracer Labs",
-        category: "Network Simulation",
-        description: "Compilation of laboratory activities from UE-Caloocan Computer Networks Subject, Implementing and Designing Infrastructures like a Network Engineer.",
+        category: "Network Engineering",
+        description: "A structured compilation of physical topology designs and network configurations implementing enterprise-grade security rules and routing guidelines.",
         image: "/images/project1.png",
         link: "https://drive.google.com/drive/folders/1qVXQCFr8HLc4iQluPlPP7JUiXtKvFKSL?usp=sharing"
-    },
-    {
-        title: "SOC Laboratory",
-        category: "Security Operations",
-        description: "Security Operations Center laboratory environment.",
-        image: "/images/project1.png",
-        link: "#"
     }
 ];
 
@@ -53,13 +67,13 @@ const ProjectsGrid = () => {
     return (
         <section id="projects" className={styles.section}>
             <div className="container">
-                <h2 className="section-title">Work</h2>
+                <h2 className="section-title">Projects</h2>
 
                 <div className={styles.group}>
-                    <h3 className={styles.subTitle}>Featured Projects</h3>
+                    <h3 className={styles.subTitle}>Featured Work</h3>
                     <div className={styles.grid}>
                         {featuredProjects.map((project, index) => (
-                            <a key={index} href={project.link} className={styles.card}>
+                            <a key={index} href={project.link} target={project.link !== '#' ? "_blank" : undefined} rel="noopener noreferrer" className={styles.card}>
                                 <div className={styles.imageContainer}>
                                     <Image
                                         src={project.image}
@@ -86,7 +100,7 @@ const ProjectsGrid = () => {
                     <h3 className={styles.subTitle}>Labs & Experiments</h3>
                     <div className={styles.grid}>
                         {labProjects.map((project, index) => (
-                            <a key={index} href={project.link} className={styles.card}>
+                            <a key={index} href={project.link} target={project.link !== '#' ? "_blank" : undefined} rel="noopener noreferrer" className={styles.card}>
                                 <div className={styles.imageContainer}>
                                     <Image
                                         src={project.image}
@@ -96,7 +110,7 @@ const ProjectsGrid = () => {
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                     />
                                     <div className={styles.overlay}>
-                                        <span className={styles.viewBtn}>View Lab</span>
+                                        <span className={styles.viewBtn}>View Lab Analysis</span>
                                     </div>
                                 </div>
                                 <div className={styles.content}>

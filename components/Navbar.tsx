@@ -6,7 +6,7 @@ const Navbar = () => {
         <header className={styles.header}>
             <div className={styles.container}>
                 <div className={styles.logo}>
-                    <Link href="/">Portfolio</Link>
+                    <Link href="/">Ranilo John</Link>
                 </div>
                 <nav className={styles.nav}>
                     <Link href="#summary" className={styles.link}>About</Link>

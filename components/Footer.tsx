@@ -10,10 +10,10 @@ const Footer = () => {
                         <p className={styles.tagline}>In the pursuit of greatness.</p>
                     </div>
                     <div className={styles.links}>
-                        <a href="https://github.com/RaniloJohn" className={styles.link}>GitHub</a>
-                        <a href="https://ph.linkedin.com/in/ranilojohn" className={styles.link}>LinkedIn</a>
-                        <a href="https://www.facebook.com/ranranilo" className={styles.link}>Facebook</a>
-                        <a href="delosangelesranilojohn@gmail.com" className={styles.link}>Email</a>
+                        <a href="https://github.com/RaniloJohn" target="_blank" rel="noopener noreferrer" className={styles.link}>GitHub</a>
+                        <a href="https://ph.linkedin.com/in/ranilojohn" target="_blank" rel="noopener noreferrer" className={styles.link}>LinkedIn</a>
+                        <a href="https://www.facebook.com/ranranilo" target="_blank" rel="noopener noreferrer" className={styles.link}>Facebook</a>
+                        <a href="mailto:delosangelesranilojohn@gmail.com" className={styles.link}>Email</a>
                     </div>
                 </div>
                 <div className={styles.bottom}>

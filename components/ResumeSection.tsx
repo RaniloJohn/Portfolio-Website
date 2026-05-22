@@ -21,6 +21,15 @@ const experience = [
     }
 ];
 
+const technicalExperience = [
+    {
+        role: "Information Technology Intern (Project Based)",
+        company: "RivanAI Cybersecurity Inc. • Internship",
+        period: "May 2026 - Present",
+        description: "Specialized in Network Security, IP management, and supporting cybersecurity infrastructure operations."
+    }
+];
+
 const education = [
     {
         degree: "B.S. Computer Engineering",
@@ -58,18 +67,19 @@ const ResumeSection = () => {
                 <div className={styles.category}>
                     <h3 className={styles.categoryTitle}>Technical Experience</h3>
                     <div className={styles.timeline}>
-                        {/* Placeholder for new experience items - user can fill this in */}
-                        <div className={styles.timelineItem}>
-                            <div className={styles.marker}></div>
-                            <div className={styles.content}>
-                                <div className={styles.header}>
-                                    <h4 className={styles.role}>Looking for opportunities</h4>
-                                    <span className={styles.company}>Self-Taught</span>
-                                    <span className={styles.period}>2023 - Present</span>
+                        {technicalExperience.map((item, index) => (
+                            <div key={index} className={styles.timelineItem}>
+                                <div className={styles.marker}></div>
+                                <div className={styles.content}>
+                                    <div className={styles.header}>
+                                        <h4 className={styles.role}>{item.role}</h4>
+                                        <span className={styles.company}>{item.company}</span>
+                                        <span className={styles.period}>{item.period}</span>
+                                    </div>
+                                    <p className={styles.description}>{item.description}</p>
                                 </div>
-                                <p className={styles.description}>Currently looking for Internship :)</p>
                             </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
 

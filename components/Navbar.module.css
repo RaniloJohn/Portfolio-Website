@@ -1,71 +1,83 @@
 .header {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: var(--nav-height);
-    background: rgba(10, 10, 10, 0.8);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border);
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: var(--max-width);
+    height: 64px;
+    background: rgba(3, 7, 18, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
     z-index: 1000;
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
     transition: all var(--transition-medium);
 }
 
 .container {
-    max-width: var(--max-width);
-    margin: 0 auto;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px;
+    padding: 0 24px;
 }
 
 .logo a {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: 1.1rem;
+    font-weight: 800;
     color: var(--foreground);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, #fff 0%, var(--primary) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .nav {
     display: flex;
-    gap: 30px;
+    gap: 24px;
 }
 
 .link {
-    font-size: 0.9rem;
-    color: var(--foreground);
-    opacity: 0.8;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--muted);
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    position: relative;
+    letter-spacing: 1px;
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
 }
 
 .link:hover {
-    opacity: 1;
     color: var(--primary);
-}
-
-.link::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--primary);
-    transition: width var(--transition-fast);
-}
-
-.link:hover::after {
-    width: 100%;
+    background: rgba(14, 165, 233, 0.08);
 }
 
 @media (max-width: 768px) {
+    .header {
+        top: 10px;
+        width: calc(100% - 20px);
+        height: 60px;
+    }
+    
+    .container {
+        padding: 0 16px;
+    }
+
+    .link {
+        font-size: 0.75rem;
+        padding: 6px 10px;
+        letter-spacing: 0.5px;
+    }
+    
     .nav {
-        display: none;
-        /* Mobile menu to be implemented if needed, or simple scroll */
+        gap: 8px;
     }
 }

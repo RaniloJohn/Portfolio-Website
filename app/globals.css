@@ -1,26 +1,39 @@
 :root {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-  --surface: #171717;
-  --surface-hover: #262626;
-  --border: #333333;
-  --primary: #3b82f6;
-  --primary-glow: rgba(59, 130, 246, 0.5);
-  --secondary: #a855f7;
-  --accent: #14b8a6;
+  --background: #030712; /* Deepest dark slate */
+  --foreground: #f9fafb; /* Crisp near-white */
+  --muted: #9ca3af; /* Warm gray */
+  --muted-dark: #4b5563; /* Muted slate for borders/labels */
+  --surface: #0b0f19; /* Lighter slate-blue card background */
+  --surface-hover: #151b2c; /* Hover card background */
+  --border: rgba(255, 255, 255, 0.07); /* Cyber border */
+  --border-glow: rgba(14, 165, 233, 0.2); /* Cyan glow border */
+  
+  /* Cyber accents */
+  --primary: #0ea5e9; /* Electric cyan */
+  --primary-rgb: 14, 165, 233;
+  --primary-glow: rgba(14, 165, 233, 0.25);
+  
+  --secondary: #8b5cf6; /* Cyber purple */
+  --secondary-rgb: 139, 92, 246;
+  --secondary-glow: rgba(139, 92, 246, 0.25);
+  
+  --accent: #10b981; /* Cybersecurity emerald green */
+  --accent-rgb: 16, 185, 129;
+  --accent-glow: rgba(16, 185, 129, 0.2);
 
-  --font-sans: 'Inter', sans-serif;
-  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Plus Jakarta Sans', var(--font-sans), system-ui, -apple-system, sans-serif;
 
-  --max-width: 1100px;
+  --max-width: 1200px;
   --nav-height: 80px;
 
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 16px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
 
-  --transition-fast: 0.2s ease;
-  --transition-medium: 0.3s ease;
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-medium: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
@@ -38,12 +51,39 @@ body {
   font-family: var(--font-sans);
   scroll-behavior: smooth;
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1f2937;
+  border: 2px solid var(--background);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Selection */
+::selection {
+  background: rgba(14, 165, 233, 0.2);
+  color: var(--foreground);
 }
 
 a {
   color: inherit;
   text-decoration: none;
-  transition: color var(--transition-fast);
+  transition: all var(--transition-fast);
 }
 
 img {
@@ -58,15 +98,16 @@ h3,
 h4,
 h5,
 h6 {
-  line-height: 1.2;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  line-height: 1.25;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--foreground);
 }
 
 section {
-  padding: 80px 20px;
-  max-width: var(--max-width);
-  margin: 0 auto;
+  padding: 100px 20px;
+  position: relative;
+  overflow: hidden;
 }
 
 /* Utilities */
@@ -74,24 +115,56 @@ section {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 20px;
+  position: relative;
+  z-index: 2;
 }
 
 .section-title {
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-  background: linear-gradient(to right, var(--foreground), var(--primary));
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 50px;
+  background: linear-gradient(135deg, #ffffff 30%, #a5f3fc 70%, var(--primary) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
+  position: relative;
+  letter-spacing: -0.04em;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: var(--radius-full);
+  margin-top: 12px;
+}
+
+/* Premium background mesh elements */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 0),
+    radial-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 0);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+  pointer-events: none;
+  z-index: 1;
 }
 
 @media (max-width: 768px) {
   .section-title {
-    font-size: 2rem;
+    font-size: 2.25rem;
   }
 
   section {
-    padding: 60px 20px;
+    padding: 80px 20px;
   }
 }
