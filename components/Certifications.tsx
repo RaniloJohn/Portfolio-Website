@@ -6,7 +6,7 @@ const certifications = [
         title: "Cisco Certified Network Associate (CCNA)",
         issuer: "Cisco",
         date: "August 5, 2026 - August 5, 2029",
-        image: "/images/certification.png"
+        image: "/images/CCNA.png"
     },
     {
         title: "CompTIA Security+",
