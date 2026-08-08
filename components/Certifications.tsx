@@ -3,6 +3,12 @@ import styles from './Certifications.module.css';
 
 const certifications = [
     {
+        title: "Cisco Certified Network Associate (CCNA)",
+        issuer: "Cisco",
+        date: "August 5, 2026 - August 5, 2029",
+        image: "/images/certification.png"
+    },
+    {
         title: "CompTIA Security+",
         issuer: "CompTIA",
         date: "January 2026- January 2029",
@@ -28,14 +34,7 @@ const certifications = [
     }
 ];
 
-const ongoingCertifications = [
-    {
-        title: "CCNA Cybersecurity (CyberOps Associate)",
-        issuer: "Cisco",
-        status: "Ongoing, Exam Take - May",
-        image: "/images/certification.png"
-    }
-];
+const ongoingCertifications: { title: string; issuer: string; status: string; image: string }[] = [];
 
 const Certifications = () => {
     return (
@@ -66,29 +65,31 @@ const Certifications = () => {
                     </div>
                 </div>
 
-                <div className={styles.group}>
-                    <h3 className={styles.subTitle}>Ongoing</h3>
-                    <div className={styles.grid}>
-                        {ongoingCertifications.map((cert, index) => (
-                            <div key={index} className={`${styles.card} ${styles.ongoing}`}>
-                                <div className={styles.imageContainer}>
-                                    <Image
-                                        src={cert.image}
-                                        alt={cert.title}
-                                        width={120}
-                                        height={120}
-                                        className={`${styles.image} ${styles.imageOngoing}`}
-                                    />
+                {ongoingCertifications.length > 0 && (
+                    <div className={styles.group}>
+                        <h3 className={styles.subTitle}>Ongoing</h3>
+                        <div className={styles.grid}>
+                            {ongoingCertifications.map((cert, index) => (
+                                <div key={index} className={`${styles.card} ${styles.ongoing}`}>
+                                    <div className={styles.imageContainer}>
+                                        <Image
+                                            src={cert.image}
+                                            alt={cert.title}
+                                            width={120}
+                                            height={120}
+                                            className={`${styles.image} ${styles.imageOngoing}`}
+                                        />
+                                    </div>
+                                    <div className={styles.content}>
+                                        <h3 className={styles.title}>{cert.title}</h3>
+                                        <span className={styles.issuer}>{cert.issuer}</span>
+                                        <span className={styles.date}>{cert.status}</span>
+                                    </div>
                                 </div>
-                                <div className={styles.content}>
-                                    <h3 className={styles.title}>{cert.title}</h3>
-                                    <span className={styles.issuer}>{cert.issuer}</span>
-                                    <span className={styles.date}>{cert.status}</span>
-                                </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
-                </div>
+                )}
 
             </div>
         </section>
