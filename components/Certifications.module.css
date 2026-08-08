@@ -72,13 +72,22 @@
 
 .imageContainer {
     flex-shrink: 0;
+    width: 90px;
+    height: 90px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .image {
     border-radius: 50%;
     border: 2px solid var(--border);
-    padding: 4px;
+    padding: 6px;
     background: rgba(3, 7, 18, 0.5);
+    object-fit: contain;
+    width: 100% !important;
+    height: 100% !important;
     transition: all var(--transition-medium);
 }
 

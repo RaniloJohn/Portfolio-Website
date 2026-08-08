@@ -11,12 +11,17 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: 'Ranilo John | Cybersecurity & IT Portfolio',
   description: 'Portfolio of Ranilo John, a Computer Engineering student specializing in Cybersecurity, Networking, and web development.',
+  icons: {
+    icon: '/images/youtube logo thumbnail.jpg.png',
+    shortcut: '/images/youtube logo thumbnail.jpg.png',
+    apple: '/images/youtube logo thumbnail.jpg.png',
+  },
   openGraph: {
     title: 'Ranilo John | Cybersecurity & IT Portfolio',
     description: 'Portfolio of Ranilo John, a Computer Engineering student specializing in Cybersecurity, Networking, and web development.',
     images: [
       {
-        url: '/images/Python.jpg',
+        url: '/images/youtube logo thumbnail.jpg.png',
         width: 800,
         height: 600,
       }

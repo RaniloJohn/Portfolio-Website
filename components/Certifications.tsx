@@ -50,8 +50,8 @@ const Certifications = () => {
                                     <Image
                                         src={cert.image}
                                         alt={cert.title}
-                                        width={120}
-                                        height={120}
+                                        width={90}
+                                        height={90}
                                         className={styles.image}
                                     />
                                 </div>
