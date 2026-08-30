@@ -9,6 +9,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://ranilojohn.github.io'),
   title: 'Ranilo John | Cybersecurity & IT Portfolio',
   description: 'Portfolio of Ranilo John, a Computer Engineering student specializing in Cybersecurity, Networking, and web development.',
   icons: {
@@ -19,6 +20,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Ranilo John | Cybersecurity & IT Portfolio',
     description: 'Portfolio of Ranilo John, a Computer Engineering student specializing in Cybersecurity, Networking, and web development.',
+    url: 'https://ranilojohn.github.io',
+    siteName: 'Ranilo John Portfolio',
     images: [
       {
         url: '/images/youtube logo thumbnail.jpg.png',
