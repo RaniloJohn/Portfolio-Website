@@ -13,9 +13,9 @@ export const metadata: Metadata = {
   title: 'Ranilo John | Cybersecurity & IT Portfolio',
   description: 'Portfolio of Ranilo John, a Computer Engineering student specializing in Cybersecurity, Networking, and web development.',
   icons: {
-    icon: '/Portfolio-Website/images/DrDOOM.png',
-    shortcut: '/Portfolio-Website/images/DrDOOM.png',
-    apple: '/Portfolio-Website/images/DrDOOM.png',
+    icon: '/Portfolio-Website/images/youtube logo thumbnail.jpg.png',
+    shortcut: '/Portfolio-Website/images/youtube logo thumbnail.jpg.png',
+    apple: '/Portfolio-Website/images/youtube logo thumbnail.jpg.png',
   },
   openGraph: {
     title: 'Ranilo John | Cybersecurity & IT Portfolio',

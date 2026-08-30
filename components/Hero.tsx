@@ -49,7 +49,7 @@ const Hero = () => {
                     <div className={styles.imageContent}>
                         <div className={styles.imageWrapper}>
                             <Image
-                                src={getImagePath('/images/DrDOOM.png')}
+                                src={getImagePath('/images/ranilojohn.jpg')}
                                 alt="Ranilo John Delos Angeles"
                                 width={240}
                                 height={240}
