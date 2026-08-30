@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import styles from './Certifications.module.css';
+import { getImagePath } from '@/utils/basePath';
 
 const certifications = [
     {
@@ -48,7 +49,7 @@ const Certifications = () => {
                             <div key={index} className={styles.card}>
                                 <div className={styles.imageContainer}>
                                     <Image
-                                        src={cert.image}
+                                        src={getImagePath(cert.image)}
                                         alt={cert.title}
                                         width={90}
                                         height={90}
@@ -73,7 +74,7 @@ const Certifications = () => {
                                 <div key={index} className={`${styles.card} ${styles.ongoing}`}>
                                     <div className={styles.imageContainer}>
                                         <Image
-                                            src={cert.image}
+                                            src={getImagePath(cert.image)}
                                             alt={cert.title}
                                             width={120}
                                             height={120}

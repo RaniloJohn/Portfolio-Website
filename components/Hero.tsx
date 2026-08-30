@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './Hero.module.css';
+import { getImagePath } from '@/utils/basePath';
 
 const Hero = () => {
     return (
@@ -33,7 +34,7 @@ const Hero = () => {
                     <div className={styles.imageContent}>
                         <div className={styles.imageWrapper}>
                             <Image
-                                src="/images/ranilojohn.jpg"
+                                src={getImagePath('/images/ranilojohn.jpg')}
                                 alt="Ranilo John Delos Angeles"
                                 width={240}
                                 height={240}

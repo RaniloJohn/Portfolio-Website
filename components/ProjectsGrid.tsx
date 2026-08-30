@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import styles from './ProjectsGrid.module.css';
+import { getImagePath } from '@/utils/basePath';
 
 const featuredProjects = [
     {
@@ -84,7 +85,7 @@ const ProjectsGrid = () => {
                             >
                                 <div className={styles.imageContainer}>
                                     <Image
-                                        src={project.image}
+                                        src={getImagePath(project.image)}
                                         alt={project.title}
                                         fill
                                         className={styles.image}
@@ -119,7 +120,7 @@ const ProjectsGrid = () => {
                             >
                                 <div className={styles.imageContainer}>
                                     <Image
-                                        src={project.image}
+                                        src={getImagePath(project.image)}
                                         alt={project.title}
                                         fill
                                         className={styles.image}
