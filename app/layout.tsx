@@ -13,9 +13,9 @@ export const metadata: Metadata = {
   title: 'Ranilo John | Cybersecurity & IT Portfolio',
   description: 'Portfolio of Ranilo John, a Computer Engineering student specializing in Cybersecurity, Networking, and web development.',
   icons: {
-    icon: '/Portfolio-Website/images/ranilojohn.jpg',
-    shortcut: '/Portfolio-Website/images/ranilojohn.jpg',
-    apple: '/Portfolio-Website/images/ranilojohn.jpg',
+    icon: '/Portfolio-Website/images/DrDOOM.png',
+    shortcut: '/Portfolio-Website/images/DrDOOM.png',
+    apple: '/Portfolio-Website/images/DrDOOM.png',
   },
   openGraph: {
     title: 'Ranilo John | Cybersecurity & IT Portfolio',
@@ -24,10 +24,10 @@ export const metadata: Metadata = {
     siteName: 'Ranilo John Portfolio',
     images: [
       {
-        url: 'https://ranilojohn.github.io/Portfolio-Website/images/ranilojohn.jpg',
-        width: 800,
-        height: 800,
-        alt: 'Ranilo John Delos Angeles',
+        url: 'https://ranilojohn.github.io/Portfolio-Website/images/DrDOOM.png',
+        width: 1200,
+        height: 630,
+        alt: 'Ranilo John Delos Angeles | Portfolio',
       }
     ],
     type: 'website',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Ranilo John | Cybersecurity & IT Portfolio',
     description: 'Portfolio of Ranilo John, a Computer Engineering student specializing in Cybersecurity, Networking, and web development.',
-    images: ['https://ranilojohn.github.io/Portfolio-Website/images/ranilojohn.jpg'],
+    images: ['https://ranilojohn.github.io/Portfolio-Website/images/DrDOOM.png'],
   }
 };
 
