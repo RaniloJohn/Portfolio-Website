@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from './Hero.module.css';
 
 const Hero = () => {
@@ -21,9 +22,9 @@ const Hero = () => {
                             <a href="mailto:delosangelesranilojohn@gmail.com" className={styles.btnPrimary}>
                                 ✉️ Email Me
                             </a>
-                            <a href="/resume/DELOS ANGELES RESUME.pdf" target="_blank" rel="noopener noreferrer" className={styles.btnSecondary}>
+                            <Link href="/resume/DELOS ANGELES RESUME.pdf" target="_blank" rel="noopener noreferrer" className={styles.btnSecondary}>
                                 📄 View CV
-                            </a>
+                            </Link>
                             <a href="#projects" className={styles.btnOutline}>
                                 💻 Projects
                             </a>
