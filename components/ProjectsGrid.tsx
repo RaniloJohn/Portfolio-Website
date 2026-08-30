@@ -42,6 +42,13 @@ const featuredProjects = [
 
 const labProjects = [
     {
+        title: "Huawei ENSP COESS Labs",
+        category: "Network Engineering",
+        description: "Network simulation topology labs built with Huawei Enterprise Network Simulation Platform (eNSP) for COESS networking activities.",
+        image: "/images/project1.png",
+        link: "https://github.com/RaniloJohn/Huawei-ENSP-COESS"
+    },
+    {
         title: "SOC Homelab Analysis",
         category: "Security Operations & Analysis",
         description: "A detailed forensic analysis and log auditing project utilizing a virtualized Security Operations Center homelab. Demonstrates telemetry capture, SIEM alerting, and defense playbook analysis.",
