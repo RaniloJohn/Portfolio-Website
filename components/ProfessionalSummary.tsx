@@ -12,16 +12,6 @@ const ProfessionalSummary = () => {
                     <p className={styles.text}>
                         I value Confidentiality, Integrity, and Availability (CIA triad), aiming to apply these principles through ethical and responsible security practices. My goal is to contribute to building secure infrastructures and systems that help organizations maintain trust and safeguard critical data.
                     </p>
-                    <div className={styles.stats}>
-                        <div className={styles.statPill}>
-                            <span className={styles.statNumber}>9 Months</span>
-                            <span className={styles.statLabel}>Studying Cybersecurity</span>
-                        </div>
-                        <div className={styles.statPill}>
-                            <span className={styles.statNumber}>5+</span>
-                            <span className={styles.statLabel}>Projects Completed</span>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>

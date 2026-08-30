@@ -79,7 +79,10 @@ const ProjectsGrid = () => {
 
                 <div className={styles.group}>
                     <div className={styles.tabPillHeader}>
-                        <span className={styles.tabIcon}>★</span> Featured Work
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                        </svg>
+                        Featured Work
                     </div>
                     <div className={styles.grid}>
                         {featuredProjects.map((project, index) => (
@@ -99,7 +102,13 @@ const ProjectsGrid = () => {
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                     />
                                     <div className={styles.overlay}>
-                                        <span className={styles.viewBtn}>View Project ↗</span>
+                                        <span className={styles.viewBtn}>
+                                            View Project
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                                <path d="M7 17L17 7"/>
+                                                <path d="M7 7h10v10"/>
+                                            </svg>
+                                        </span>
                                     </div>
                                 </div>
                                 <div className={styles.content}>
@@ -114,7 +123,12 @@ const ProjectsGrid = () => {
 
                 <div className={styles.group}>
                     <div className={styles.tabPillHeader}>
-                        <span className={styles.tabIcon}>🧪</span> Labs & Experiments
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M10 2v7.31L4.75 20.5a2 2 0 0 0 1.76 2.9h11.02a2 2 0 0 0 1.76-2.9L14 9.31V2"/>
+                            <line x1="8.5" x2="15.5" y1="2" y2="2"/>
+                            <line x1="9" x2="15" y1="15" y2="15"/>
+                        </svg>
+                        Labs & Experiments
                     </div>
                     <div className={styles.grid}>
                         {labProjects.map((project, index) => (
@@ -134,7 +148,13 @@ const ProjectsGrid = () => {
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                     />
                                     <div className={styles.overlay}>
-                                        <span className={styles.viewBtn}>View Lab ↗</span>
+                                        <span className={styles.viewBtn}>
+                                            View Lab
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                                <path d="M7 17L17 7"/>
+                                                <path d="M7 7h10v10"/>
+                                            </svg>
+                                        </span>
                                     </div>
                                 </div>
                                 <div className={styles.content}>
