@@ -1,41 +1,72 @@
 import styles from './ResumeSection.module.css';
 
-const experience = [
+const technicalExperience = [
+    {
+        role: "Cybersecurity Intern",
+        company: "RivanCyber Training Institute Inc. • Makati City",
+        period: "May 2026 - July 2026",
+        bullets: [
+            "Optimized enterprise network simulations within VMware environments by configuring robust network topologies, managing virtual and physical Cisco Switches, Routers, DNS, and DHCP services via SecureCRT.",
+            "Enhanced automated local threat detection and log analysis by deploying an AI-Enrichment Logs SOC Laboratory baseline architecture for training environments.",
+            "Boosted student lab success rates by guiding 20+ students through the troubleshooting of complex network topologies, security configurations, and technical errors."
+        ]
+    }
+];
+
+const technicalProjects = [
+    {
+        role: "AI-Assisted SOC Laboratory (Homelab)",
+        company: "Homelab & Cybersecurity Engineering",
+        period: "2026",
+        bullets: [
+            "Engineered an enterprise SOC laboratory using VMware to orchestrate a Fortinet firewall, a Wazuh manager with Suricata IDS, and 2-3 endpoint agents.",
+            "Integrated an offline AI pipeline via Filebeat and ELK, leveraging a localized TinyLLaMa instance to automatically enrich security logs with MITRE ATT&CK mappings."
+        ]
+    }
+];
+
+const leadershipExperience = [
     {
         role: "Public Relations Officer",
         company: "Computer Engineering Students' Society - UE Caloocan",
         period: "2025 - Present",
-        description: "Promoted workshops, seminars, and technical programs to increase engagement within the community. Designed and produced promotional materials (pubmats) for events, announcements, and society initiatives"
-    },
-    {
-        role: "Treasurer",
-        company: "Youth For Animals UE - Caloocan",
-        period: "2024 - 2025",
-        description: "Managed the organization’s funds, budgeting, and financial records. Oversaw collection, safekeeping, and allocation of donations and event proceeds"
-    },
-    {
-        role: "Player - League of Legends",
-        company: "UE Zenith Esports - Caloocan",
-        period: "2022 - Present",
-        description: "Participated in inter-campus tournaments and scrimmages"
-    }
-];
-
-const technicalExperience = [
-    {
-        role: "Information Technology Intern (Project Based)",
-        company: "RivanAI Cybersecurity Inc. • Internship",
-        period: "May 2026 - Present",
-        description: "Specialized in Network Security, IP management, and supporting cybersecurity infrastructure operations."
+        bullets: [
+            "Promoted workshops, seminars, and technical programs to increase engagement within the community. Served as Student Speaker for 'From Student to Security: Leveling up your Cybersecurity Career,' teaching cybersecurity fundamentals, toolsets, and mindsets to peers."
+        ]
     }
 ];
 
 const education = [
     {
-        degree: "B.S. Computer Engineering",
-        school: "University of the East - Caloocan",
-        period: "2023 - 2027 (Expected)",
-        description: "Currently a third year student with current GWA of 1.9"
+        degree: "Bachelor of Science in Computer Engineering",
+        school: "University of the East - Caloocan City",
+        period: "Graduation: Jun 2027",
+        description: "Caloocan City, NCR"
+    },
+    {
+        degree: "Senior High School - ICT Graduate",
+        school: "University of the East - Caloocan City",
+        period: "Graduation: July 2023",
+        description: "Caloocan City, NCR"
+    }
+];
+
+const technicalSkills = [
+    {
+        category: "Computer Networking",
+        skills: ["Cisco IOS CLI (Routing & Switching)", "VLSM / Subnetting", "Packet Analysis (Wireshark)", "IPAM"]
+    },
+    {
+        category: "Cybersecurity",
+        skills: ["Threat Detection (Wazuh, Suricata, Fortinet)", "SOC Operations", "ACL", "Security Standards"]
+    },
+    {
+        category: "Programming",
+        skills: ["Python", "Java", "HTML", "CSS", "REST API", "JSON"]
+    },
+    {
+        category: "Systems & Tools",
+        skills: ["Linux Administration (Rocky Linux, Kali)", "VMware Workstation", "GNS3", "SecureCRT", "EVE-NG"]
     }
 ];
 
@@ -43,29 +74,11 @@ const ResumeSection = () => {
     return (
         <section id="resume" className={styles.section}>
             <div className="container">
-                <h2 className="section-title">Resume</h2>
+                <h2 className="section-title">Resume & Experience</h2>
 
+                {/* Experience */}
                 <div className={styles.category}>
-                    <h3 className={styles.categoryTitle}>Leadership Experience</h3>
-                    <div className={styles.timeline}>
-                        {experience.map((item, index) => (
-                            <div key={index} className={styles.timelineItem}>
-                                <div className={styles.marker}></div>
-                                <div className={styles.content}>
-                                    <div className={styles.header}>
-                                        <h4 className={styles.role}>{item.role}</h4>
-                                        <span className={styles.company}>{item.company}</span>
-                                        <span className={styles.period}>{item.period}</span>
-                                    </div>
-                                    <p className={styles.description}>{item.description}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                <div className={styles.category}>
-                    <h3 className={styles.categoryTitle}>Technical Experience</h3>
+                    <h3 className={styles.categoryTitle}>Experience</h3>
                     <div className={styles.timeline}>
                         {technicalExperience.map((item, index) => (
                             <div key={index} className={styles.timelineItem}>
@@ -76,13 +89,66 @@ const ResumeSection = () => {
                                         <span className={styles.company}>{item.company}</span>
                                         <span className={styles.period}>{item.period}</span>
                                     </div>
-                                    <p className={styles.description}>{item.description}</p>
+                                    <ul className={styles.bulletList}>
+                                        {item.bullets.map((bullet, bIndex) => (
+                                            <li key={bIndex} className={styles.bulletItem}>{bullet}</li>
+                                        ))}
+                                    </ul>
                                 </div>
                             </div>
                         ))}
                     </div>
                 </div>
 
+                {/* Technical Projects */}
+                <div className={styles.category}>
+                    <h3 className={styles.categoryTitle}>Technical Projects</h3>
+                    <div className={styles.timeline}>
+                        {technicalProjects.map((item, index) => (
+                            <div key={index} className={styles.timelineItem}>
+                                <div className={styles.marker}></div>
+                                <div className={styles.content}>
+                                    <div className={styles.header}>
+                                        <h4 className={styles.role}>{item.role}</h4>
+                                        <span className={styles.company}>{item.company}</span>
+                                        <span className={styles.period}>{item.period}</span>
+                                    </div>
+                                    <ul className={styles.bulletList}>
+                                        {item.bullets.map((bullet, bIndex) => (
+                                            <li key={bIndex} className={styles.bulletItem}>{bullet}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Leadership Experience */}
+                <div className={styles.category}>
+                    <h3 className={styles.categoryTitle}>Leadership Experience</h3>
+                    <div className={styles.timeline}>
+                        {leadershipExperience.map((item, index) => (
+                            <div key={index} className={styles.timelineItem}>
+                                <div className={styles.marker}></div>
+                                <div className={styles.content}>
+                                    <div className={styles.header}>
+                                        <h4 className={styles.role}>{item.role}</h4>
+                                        <span className={styles.company}>{item.company}</span>
+                                        <span className={styles.period}>{item.period}</span>
+                                    </div>
+                                    <ul className={styles.bulletList}>
+                                        {item.bullets.map((bullet, bIndex) => (
+                                            <li key={bIndex} className={styles.bulletItem}>{bullet}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Education */}
                 <div className={styles.category}>
                     <h3 className={styles.categoryTitle}>Education</h3>
                     <div className={styles.timeline}>
@@ -96,6 +162,23 @@ const ResumeSection = () => {
                                         <span className={styles.period}>{item.period}</span>
                                     </div>
                                     <p className={styles.description}>{item.description}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Technical Skills */}
+                <div className={styles.category}>
+                    <h3 className={styles.categoryTitle}>Technical Skills</h3>
+                    <div className={styles.skillsGrid}>
+                        {technicalSkills.map((group, index) => (
+                            <div key={index} className={styles.skillGroup}>
+                                <h4 className={styles.skillCategoryName}>{group.category}</h4>
+                                <div className={styles.skillPills}>
+                                    {group.skills.map((skill, sIndex) => (
+                                        <span key={sIndex} className={styles.skillPill}>{skill}</span>
+                                    ))}
                                 </div>
                             </div>
                         ))}

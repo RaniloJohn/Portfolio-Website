@@ -101,6 +101,59 @@
     line-height: 1.6;
 }
 
+.bulletList {
+    margin-top: 8px;
+    padding-left: 18px;
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+.bulletItem {
+    margin-bottom: 6px;
+}
+
+.bulletItem:last-child {
+    margin-bottom: 0;
+}
+
+/* Technical Skills Grid */
+.skillsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.skillGroup {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 16px;
+}
+
+.skillCategoryName {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--foreground);
+    margin-bottom: 10px;
+}
+
+.skillPills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.skillPill {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--foreground);
+    background: var(--surface-subtle);
+    border: 1px solid var(--border);
+    padding: 3px 8px;
+    border-radius: var(--radius-sm);
+}
+
 @media (max-width: 768px) {
     .timeline {
         padding-left: 16px;
