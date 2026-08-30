@@ -4,36 +4,42 @@ import styles from './Hero.module.css';
 const Hero = () => {
     return (
         <section id="home" className={styles.hero}>
-            <div className={styles.glowBg1}></div>
-            <div className={styles.glowBg2}></div>
-            <div className={styles.content}>
-                <div className={styles.textContent}>
-                    <h1 className={styles.title}>
-                        Hello, I'm <span className={styles.name}>Ranilo John Delos Angeles</span>
-                    </h1>
-                    <h2 className={styles.subtitle}>
-                        Computer Engineering Student & <span className={styles.highlight}>Cybersecurity Enthusiast</span>
-                    </h2>
-                    <p className={styles.description}>
-                        I am a Computer Engineering student specializing in cybersecurity, networking, and secure infrastructure. Dedicated to safeguarding systems and building trust through ethical, responsible technology practices.
-                    </p>
-                    <div className={styles.actions}>
-                        <a href="#projects" className={`${styles.btn} ${styles.primary}`}>View My Work</a>
-                        <a href="mailto:delosangelesranilojohn@gmail.com" className={`${styles.btn} ${styles.secondary}`}>Email Me</a>
-                        <a href="/resume/DELOS ANGELES RESUME.pdf" target="_blank" rel="noopener noreferrer" className={`${styles.btn} ${styles.tertiary}`}>CV</a>
+            <div className="container">
+                <h1 className={styles.pageTitle}>Portfolio</h1>
+                <div className={styles.content}>
+                    <div className={styles.textContent}>
+                        <h2 className={styles.title}>
+                            Hello, I'm <span className={styles.name}>Ranilo John.</span>
+                        </h2>
+                        <p className={styles.description}>
+                            I'm a <strong>Computer Engineering Student</strong> specializing in <strong>Cybersecurity</strong> and <strong>Networking</strong>.
+                        </p>
+                        <p className={styles.description}>
+                            I design and optimize network infrastructures, simulate security operations, and build applications tailored for security and productivity.
+                        </p>
+                        <div className={styles.actions}>
+                            <a href="mailto:delosangelesranilojohn@gmail.com" className={styles.btnPrimary}>
+                                ✉️ Email Me
+                            </a>
+                            <a href="/resume/DELOS ANGELES RESUME.pdf" target="_blank" rel="noopener noreferrer" className={styles.btnSecondary}>
+                                📄 View CV
+                            </a>
+                            <a href="#projects" className={styles.btnOutline}>
+                                💻 Projects
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div className={styles.imageContent}>
-                    <div className={styles.imageWrapper}>
-                        <div className={styles.borderGlow}></div>
-                        <Image
-                            src="/images/ranilojohn.jpg"
-                            alt="Ranilo John"
-                            width={340}
-                            height={340}
-                            className={styles.profileImage}
-                            priority
-                        />
+                    <div className={styles.imageContent}>
+                        <div className={styles.imageWrapper}>
+                            <Image
+                                src="/images/ranilojohn.jpg"
+                                alt="Ranilo John Delos Angeles"
+                                width={240}
+                                height={240}
+                                className={styles.profileImage}
+                                priority
+                            />
+                        </div>
                     </div>
                 </div>
             </div>

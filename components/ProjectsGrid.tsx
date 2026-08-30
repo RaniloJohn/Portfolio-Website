@@ -70,10 +70,18 @@ const ProjectsGrid = () => {
                 <h2 className="section-title">Projects</h2>
 
                 <div className={styles.group}>
-                    <h3 className={styles.subTitle}>Featured Work</h3>
+                    <div className={styles.tabPillHeader}>
+                        <span className={styles.tabIcon}>★</span> Featured Work
+                    </div>
                     <div className={styles.grid}>
                         {featuredProjects.map((project, index) => (
-                            <a key={index} href={project.link} target={project.link !== '#' ? "_blank" : undefined} rel="noopener noreferrer" className={styles.card}>
+                            <a 
+                                key={index} 
+                                href={project.link} 
+                                target={project.link !== '#' ? "_blank" : undefined} 
+                                rel="noopener noreferrer" 
+                                className={styles.card}
+                            >
                                 <div className={styles.imageContainer}>
                                     <Image
                                         src={project.image}
@@ -83,11 +91,11 @@ const ProjectsGrid = () => {
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                     />
                                     <div className={styles.overlay}>
-                                        <span className={styles.viewBtn}>View Project</span>
+                                        <span className={styles.viewBtn}>View Project ↗</span>
                                     </div>
                                 </div>
                                 <div className={styles.content}>
-                                    <span className={styles.category}>{project.category}</span>
+                                    <div className={styles.categoryBadge}>{project.category}</div>
                                     <h3 className={styles.title}>{project.title}</h3>
                                     <p className={styles.description}>{project.description}</p>
                                 </div>
@@ -97,10 +105,18 @@ const ProjectsGrid = () => {
                 </div>
 
                 <div className={styles.group}>
-                    <h3 className={styles.subTitle}>Labs & Experiments</h3>
+                    <div className={styles.tabPillHeader}>
+                        <span className={styles.tabIcon}>🧪</span> Labs & Experiments
+                    </div>
                     <div className={styles.grid}>
                         {labProjects.map((project, index) => (
-                            <a key={index} href={project.link} target={project.link !== '#' ? "_blank" : undefined} rel="noopener noreferrer" className={styles.card}>
+                            <a 
+                                key={index} 
+                                href={project.link} 
+                                target={project.link !== '#' ? "_blank" : undefined} 
+                                rel="noopener noreferrer" 
+                                className={styles.card}
+                            >
                                 <div className={styles.imageContainer}>
                                     <Image
                                         src={project.image}
@@ -110,11 +126,11 @@ const ProjectsGrid = () => {
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                     />
                                     <div className={styles.overlay}>
-                                        <span className={styles.viewBtn}>View Lab Analysis</span>
+                                        <span className={styles.viewBtn}>View Lab ↗</span>
                                     </div>
                                 </div>
                                 <div className={styles.content}>
-                                    <span className={styles.category}>{project.category}</span>
+                                    <div className={styles.categoryBadge}>{project.category}</div>
                                     <h3 className={styles.title}>{project.title}</h3>
                                     <p className={styles.description}>{project.description}</p>
                                 </div>

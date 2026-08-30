@@ -1,18 +1,17 @@
 .header {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: sticky;
+    top: 16px;
+    margin: 16px auto 0 auto;
     width: calc(100% - 40px);
     max-width: var(--max-width);
-    height: 64px;
-    background: rgba(3, 7, 18, 0.7);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    height: 56px;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
     z-index: 1000;
-    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+    box-shadow: var(--shadow-sm);
     transition: all var(--transition-medium);
 }
 
@@ -21,19 +20,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 24px;
+    padding: 0 20px;
 }
 
 .logo a {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 800;
     color: var(--foreground);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    background: linear-gradient(135deg, #fff 0%, var(--primary) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.02em;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -41,43 +35,41 @@
 
 .nav {
     display: flex;
-    gap: 24px;
+    gap: 6px;
 }
 
 .link {
-    font-size: 0.8rem;
-    font-weight: 600;
+    font-size: 0.85rem;
+    font-weight: 500;
     color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 8px 12px;
+    padding: 6px 12px;
     border-radius: var(--radius-sm);
     transition: all var(--transition-fast);
 }
 
 .link:hover {
-    color: var(--primary);
-    background: rgba(14, 165, 233, 0.08);
+    color: var(--foreground);
+    background: var(--surface-hover);
 }
 
 @media (max-width: 768px) {
     .header {
         top: 10px;
+        margin-top: 10px;
         width: calc(100% - 20px);
-        height: 60px;
+        height: 52px;
     }
     
     .container {
-        padding: 0 16px;
+        padding: 0 12px;
     }
 
     .link {
-        font-size: 0.75rem;
-        padding: 6px 10px;
-        letter-spacing: 0.5px;
+        font-size: 0.78rem;
+        padding: 4px 8px;
     }
     
     .nav {
-        gap: 8px;
+        gap: 4px;
     }
 }

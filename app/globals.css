@@ -1,39 +1,35 @@
 :root {
-  --background: #030712; /* Deepest dark slate */
-  --foreground: #f9fafb; /* Crisp near-white */
-  --muted: #9ca3af; /* Warm gray */
-  --muted-dark: #4b5563; /* Muted slate for borders/labels */
-  --surface: #0b0f19; /* Lighter slate-blue card background */
-  --surface-hover: #151b2c; /* Hover card background */
-  --border: rgba(255, 255, 255, 0.07); /* Cyber border */
-  --border-glow: rgba(14, 165, 233, 0.2); /* Cyan glow border */
+  --background: #ffffff; /* Crisp clean white background */
+  --foreground: #111827; /* Dark slate/charcoal typography */
+  --muted: #6b7280; /* Soft neutral gray */
+  --muted-light: #9ca3af;
+  --surface: #ffffff; /* White card surface */
+  --surface-subtle: #f9fafb; /* Light gray card fill/accent */
+  --surface-hover: #f3f4f6; /* Soft gray hover */
+  --border: #e5e7eb; /* 1px hairline border */
+  --border-dark: #d1d5db;
   
-  /* Cyber accents */
-  --primary: #0ea5e9; /* Electric cyan */
-  --primary-rgb: 14, 165, 233;
-  --primary-glow: rgba(14, 165, 233, 0.25);
-  
-  --secondary: #8b5cf6; /* Cyber purple */
-  --secondary-rgb: 139, 92, 246;
-  --secondary-glow: rgba(139, 92, 246, 0.25);
-  
-  --accent: #10b981; /* Cybersecurity emerald green */
-  --accent-rgb: 16, 185, 129;
-  --accent-glow: rgba(16, 185, 129, 0.2);
+  --primary: #111827; /* Dark primary action */
+  --primary-hover: #1f2937;
+  --secondary: #2563eb; /* Sleek accent blue */
+  --accent: #10b981; /* Soft green */
 
   --font-sans: 'Plus Jakarta Sans', var(--font-sans), system-ui, -apple-system, sans-serif;
 
-  --max-width: 1200px;
-  --nav-height: 80px;
+  --max-width: 1000px; /* Clean compact page width like Notion */
+  --nav-height: 64px;
 
   --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 24px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
   --radius-full: 9999px;
 
-  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-medium: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.06), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.08);
+
+  --transition-fast: 0.15s ease;
+  --transition-medium: 0.25s ease;
 }
 
 * {
@@ -57,7 +53,7 @@ body {
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -65,19 +61,18 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1f2937;
-  border: 2px solid var(--background);
+  background: #d1d5db;
   border-radius: var(--radius-full);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary);
+  background: #9ca3af;
 }
 
 /* Selection */
 ::selection {
-  background: rgba(14, 165, 233, 0.2);
-  color: var(--foreground);
+  background: #e5e7eb;
+  color: #111827;
 }
 
 a {
@@ -99,15 +94,14 @@ h4,
 h5,
 h6 {
   line-height: 1.25;
-  font-weight: 800;
-  letter-spacing: -0.03em;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   color: var(--foreground);
 }
 
 section {
-  padding: 100px 20px;
+  padding: 50px 20px;
   position: relative;
-  overflow: hidden;
 }
 
 /* Utilities */
@@ -115,56 +109,25 @@ section {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 20px;
-  position: relative;
-  z-index: 2;
 }
 
 .section-title {
-  font-size: 3rem;
+  font-size: 2.2rem;
   font-weight: 800;
-  margin-bottom: 50px;
-  background: linear-gradient(135deg, #ffffff 30%, #a5f3fc 70%, var(--primary) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-  position: relative;
-  letter-spacing: -0.04em;
-}
-
-.section-title::after {
-  content: '';
-  display: block;
-  width: 40px;
-  height: 4px;
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
-  border-radius: var(--radius-full);
-  margin-top: 12px;
-}
-
-/* Premium background mesh elements */
-body::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: 
-    radial-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 0),
-    radial-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 0);
-  background-size: 40px 40px;
-  background-position: 0 0, 20px 20px;
-  pointer-events: none;
-  z-index: 1;
+  margin-bottom: 28px;
+  color: var(--foreground);
+  letter-spacing: -0.03em;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 @media (max-width: 768px) {
   .section-title {
-    font-size: 2.25rem;
+    font-size: 1.75rem;
   }
 
   section {
-    padding: 80px 20px;
+    padding: 36px 16px;
   }
 }

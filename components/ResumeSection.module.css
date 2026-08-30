@@ -1,11 +1,9 @@
 .section {
     background-color: var(--background);
-    position: relative;
-    z-index: 2;
 }
 
 .category {
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
 
 .category:last-child {
@@ -13,31 +11,23 @@
 }
 
 .categoryTitle {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 700;
     color: var(--foreground);
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     display: flex;
     align-items: center;
-    gap: 12px;
-}
-
-.categoryTitle::before {
-    content: '';
-    width: 4px;
-    height: 24px;
-    background: linear-gradient(to bottom, var(--primary), var(--secondary));
-    border-radius: var(--radius-full);
+    gap: 8px;
 }
 
 .timeline {
     position: relative;
-    padding-left: 32px;
+    padding-left: 24px;
     border-left: 2px solid var(--border);
 }
 
 .timelineItem {
-    margin-bottom: 40px;
+    margin-bottom: 24px;
     position: relative;
 }
 
@@ -47,94 +37,83 @@
 
 .marker {
     position: absolute;
-    top: 26px;
-    left: -41px; /* 32px padding + 2px border + offset */
-    width: 16px;
-    height: 16px;
+    top: 22px;
+    left: -30px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
-    background: var(--background);
-    border: 3px solid var(--border-glow);
-    box-shadow: 0 0 0 0 rgba(14, 165, 233, 0);
-    transition: all var(--transition-medium);
+    background: var(--foreground);
+    border: 2px solid var(--background);
     z-index: 5;
 }
 
-.timelineItem:hover .marker {
-    background: var(--primary);
-    border-color: var(--foreground);
-    box-shadow: 0 0 12px var(--primary);
-}
-
 .content {
-    background: rgba(11, 15, 25, 0.3);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    padding: 24px;
+    background: var(--surface);
+    padding: 20px;
     border-radius: var(--radius-md);
     border: 1px solid var(--border);
-    transition: all var(--transition-medium);
+    transition: all var(--transition-fast);
 }
 
 .content:hover {
-    transform: translateX(6px);
-    border-color: var(--primary);
-    background: rgba(11, 15, 25, 0.6);
-    box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.4);
+    border-color: var(--border-dark);
+    box-shadow: var(--shadow-sm);
 }
 
 .header {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 12px;
+    gap: 10px;
+    margin-bottom: 8px;
 }
 
 .role {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     font-weight: 700;
     color: var(--foreground);
 }
 
 .company {
-    font-size: 0.95rem;
-    color: var(--primary);
+    font-size: 0.85rem;
+    color: var(--muted);
     font-weight: 600;
-    background: rgba(14, 165, 233, 0.08);
-    padding: 4px 10px;
+    background: var(--surface-subtle);
+    border: 1px solid var(--border);
+    padding: 2px 8px;
     border-radius: var(--radius-sm);
 }
 
 .period {
     margin-left: auto;
     font-size: 0.8rem;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--muted);
-    background: rgba(255, 255, 255, 0.04);
+    background: var(--surface-subtle);
     border: 1px solid var(--border);
-    padding: 4px 12px;
+    padding: 2px 10px;
     border-radius: var(--radius-full);
 }
 
 .description {
     color: var(--muted);
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     line-height: 1.6;
 }
 
 @media (max-width: 768px) {
     .timeline {
-        padding-left: 20px;
+        padding-left: 16px;
     }
     
     .marker {
-        left: -29px;
+        left: -21px;
     }
     
     .header {
         align-items: flex-start;
         flex-direction: column;
-        gap: 8px;
+        gap: 6px;
     }
     
     .period {
