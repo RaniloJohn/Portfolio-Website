@@ -1,4 +1,5 @@
 import styles from './ResumeSection.module.css';
+import { getImagePath } from '@/utils/basePath';
 
 const technicalExperience = [
     {
@@ -74,7 +75,34 @@ const ResumeSection = () => {
     return (
         <section id="resume" className={styles.section}>
             <div className="container">
-                <h2 className="section-title">Resume & Experience</h2>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px', marginBottom: '24px' }}>
+                    <h2 className="section-title" style={{ margin: 0 }}>Resume & Experience</h2>
+                    <a 
+                        href={getImagePath('/resume/DELOS ANGELES RESUME.pdf')} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '6px',
+                            padding: '8px 16px',
+                            background: 'var(--surface)',
+                            color: 'var(--foreground)',
+                            border: '1px solid var(--border)',
+                            borderRadius: 'var(--radius-sm)',
+                            fontSize: '0.85rem',
+                            fontWeight: 600,
+                            textDecoration: 'none'
+                        }}
+                    >
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" x2="12" y1="15" y2="3"/>
+                        </svg>
+                        Download PDF CV
+                    </a>
+                </div>
 
                 {/* Experience */}
                 <div className={styles.category}>
