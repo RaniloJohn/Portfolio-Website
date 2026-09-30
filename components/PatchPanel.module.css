@@ -1,0 +1,190 @@
+/* A 24-port, 1U patch panel. Every assigned port links somewhere on the page. */
+.panel {
+    display: grid;
+    grid-template-columns: 28px minmax(0, 1fr) 28px;
+    margin-top: clamp(48px, 7vw, 88px);
+    background: var(--steel);
+    color: var(--steel-print);
+    border-radius: var(--r-ctl);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.6),
+        0 2px 3px rgba(0, 0, 0, 0.25),
+        0 22px 40px -26px rgba(0, 0, 0, 0.7);
+}
+
+.ear {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    background: var(--steel-2);
+    border-radius: var(--r-ctl) 0 0 var(--r-ctl);
+}
+
+.ear:last-child {
+    border-radius: 0 var(--r-ctl) var(--r-ctl) 0;
+}
+
+.ear i {
+    width: 11px;
+    height: 7px;
+    border-radius: 4px;
+    background: #050505;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.9), 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+.face {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(10px, 2vw, 28px);
+    padding: 12px clamp(12px, 2vw, 24px) 14px;
+}
+
+.group {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 6px;
+    list-style: none;
+}
+
+.port {
+    min-width: 0;
+}
+
+.hit {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    justify-items: center;
+    gap: 5px;
+    padding: 2px 0 4px;
+    border-radius: 2px;
+}
+
+.num {
+    font-size: 0.66rem;
+    font-weight: 600;
+    line-height: 1;
+    color: #a9a9a9;
+}
+
+.jack {
+    position: relative;
+    width: 100%;
+    max-width: 38px;
+    aspect-ratio: 1.1;
+    background: #030303;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 72% 80%, 72% 100%, 28% 100%, 28% 80%, 0 80%);
+    box-shadow: inset 0 3px 4px rgba(0, 0, 0, 1);
+    transition: background 200ms var(--ease);
+}
+
+.pins {
+    position: absolute;
+    left: 18%;
+    right: 18%;
+    top: 10%;
+    height: 20%;
+    background: repeating-linear-gradient(90deg, #6d6d6d 0 1.5px, transparent 1.5px 12.5%);
+    opacity: 0.8;
+}
+
+.led {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #2e2e2e;
+}
+
+.port .hit {
+    position: relative;
+}
+
+.led {
+    top: 17px;
+    right: 2px;
+}
+
+.label {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: clip;
+    font-size: 0.6rem;
+    font-stretch: 62%;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    text-transform: uppercase;
+    white-space: nowrap;
+    padding: 3px 2px 2px;
+    background: var(--tape-white);
+    color: var(--ink);
+    border-radius: 1px;
+    transition: background 160ms var(--ease), color 160ms var(--ease);
+}
+
+/* Link-up: assigned ports blink twice, then hold. The one authored motion on the page. */
+a.hit .led {
+    animation: linkup 900ms steps(1, end) both;
+    animation-delay: calc(300ms + var(--n) * 55ms);
+}
+
+@keyframes linkup {
+    0% { background: #2e2e2e; box-shadow: none; }
+    20% { background: var(--led); box-shadow: 0 0 6px rgba(255, 255, 255, 0.8); }
+    40% { background: #2e2e2e; box-shadow: none; }
+    60% { background: var(--led); box-shadow: 0 0 6px rgba(255, 255, 255, 0.8); }
+    80% { background: #2e2e2e; box-shadow: none; }
+    100% { background: var(--led); box-shadow: 0 0 5px rgba(255, 255, 255, 0.6); }
+}
+
+a.hit:hover .jack,
+a.hit:focus-visible .jack {
+    background: #2a2a2a;
+}
+
+a.hit:hover .label,
+a.hit:focus-visible .label {
+    background: var(--ink);
+    color: var(--tape-white);
+    box-shadow: inset 0 0 0 1px var(--tape-white);
+}
+
+a.hit:focus-visible {
+    outline-color: var(--tape-white);
+    outline-offset: 1px;
+}
+
+.spare .label {
+    background: transparent;
+    color: #555;
+}
+
+@media (max-width: 960px) {
+    .face {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: 16px;
+    }
+}
+
+@media (max-width: 520px) {
+    .panel {
+        grid-template-columns: 14px minmax(0, 1fr) 14px;
+    }
+
+    .ear i {
+        width: 7px;
+        height: 5px;
+    }
+
+    .face {
+        grid-template-columns: 1fr;
+        padding: 12px 10px;
+    }
+
+    .group {
+        gap: 5px;
+    }
+}

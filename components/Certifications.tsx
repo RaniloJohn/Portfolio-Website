@@ -1,97 +1,33 @@
 import Image from 'next/image';
 import styles from './Certifications.module.css';
 import { getImagePath } from '@/utils/basePath';
-
-const certifications = [
-    {
-        title: "Cisco Certified Network Associate (CCNA)",
-        issuer: "Cisco",
-        date: "August 5, 2026 - August 5, 2029",
-        image: "/images/CCNA.png"
-    },
-    {
-        title: "CompTIA Security+",
-        issuer: "CompTIA",
-        date: "January 2026- January 2029",
-        image: "/images/CompTIA_Security.png"
-    },
-    {
-        title: "ISC2 Certified in Cybersecurity",
-        issuer: "ISC2",
-        date: "November 2025 - November 2028",
-        image: "/images/ISC2.jpg"
-    },
-    {
-        title: "Google Cybersecurity Professional",
-        issuer: "Coursera, Google",
-        date: "November 2025",
-        image: "/images/GoogleCybersecurity - Copy.jpg"
-    },
-    {
-        title: "Aviatrix Multicloud Network Associate",
-        issuer: "Aviatrix",
-        date: "December 2025 - December 2028",
-        image: "/images/Aviatrix.png"
-    }
-];
-
-const ongoingCertifications: { title: string; issuer: string; status: string; image: string }[] = [];
+import { certifications } from '@/data/portfolio';
 
 const Certifications = () => {
     return (
-        <section id="certifications" className={styles.section}>
+        <section id="certifications" className={`section ${styles.section}`}>
             <div className="container">
-                <h2 className="section-title">Certifications</h2>
+                <h2 className="tape section-tape">Certifications</h2>
 
-                <div className={styles.group}>
-                    <div className={styles.grid}>
-                        {certifications.map((cert, index) => (
-                            <div key={index} className={styles.card}>
-                                <div className={styles.imageContainer}>
-                                    <Image
-                                        src={getImagePath(cert.image)}
-                                        alt={cert.title}
-                                        width={90}
-                                        height={90}
-                                        className={styles.image}
-                                    />
-                                </div>
-                                <div className={styles.content}>
-                                    <h3 className={styles.title}>{cert.title}</h3>
-                                    <span className={styles.issuer}>{cert.issuer}</span>
-                                    <span className={styles.date}>Issued {cert.date}</span>
-                                </div>
+                <ul className={styles.list}>
+                    {certifications.map((cert) => (
+                        <li key={cert.title} className={styles.item}>
+                            <div className={styles.badge}>
+                                <Image
+                                    src={getImagePath(cert.image)}
+                                    alt={`${cert.issuer} badge`}
+                                    width={120}
+                                    height={120}
+                                    className={styles.image}
+                                />
                             </div>
-                        ))}
-                    </div>
-                </div>
-
-                {ongoingCertifications.length > 0 && (
-                    <div className={styles.group}>
-                        <h3 className={styles.subTitle}>Ongoing</h3>
-                        <div className={styles.grid}>
-                            {ongoingCertifications.map((cert, index) => (
-                                <div key={index} className={`${styles.card} ${styles.ongoing}`}>
-                                    <div className={styles.imageContainer}>
-                                        <Image
-                                            src={getImagePath(cert.image)}
-                                            alt={cert.title}
-                                            width={120}
-                                            height={120}
-                                            className={`${styles.image} ${styles.imageOngoing}`}
-                                        />
-                                    </div>
-                                    <div className={styles.content}>
-                                        <h3 className={styles.title}>{cert.title}</h3>
-                                        <span className={styles.issuer}>{cert.issuer}</span>
-                                        <span className={styles.date}>{cert.status}</span>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                )}
-
+                            <span className="tape">{cert.short}</span>
+                            <h3 className={styles.title}>{cert.title}</h3>
+                            <p className={styles.issuer}>{cert.issuer}</p>
+                            <p className={styles.date}>{cert.date.replace(/\s*-\s*/, ' – ')}</p>
+                        </li>
+                    ))}
+                </ul>
             </div>
         </section>
     );

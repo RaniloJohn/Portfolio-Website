@@ -1,18 +1,42 @@
 import styles from './ProfessionalSummary.module.css';
+import RackAscii from './RackAscii';
+
+const focus = [
+    { k: 'Detect', v: 'SIEM and IDS with Wazuh, Suricata, and Fortinet' },
+    { k: 'Design', v: 'Segmented networks, VLSM, Cisco IOS routing and switching' },
+    { k: 'Operate', v: 'Linux administration and virtualized labs in VMware, GNS3, EVE-NG' },
+    { k: 'Build', v: 'Python automation and AI-assisted workflows' },
+];
 
 const ProfessionalSummary = () => {
     return (
-        <section id="summary" className={styles.section}>
-            <div className="container">
-                <h2 className="section-title">About Me</h2>
-                <div className={styles.card}>
-                    <p className={styles.text}>
-                        4th-year Computer Engineering student specializing in cybersecurity, network engineering, and threat triage. Certified in Cisco CCNA, CompTIA Security+, ISC2 CC, and Aviatrix ACE, with hands-on experience designing resilient network architectures, configuring SIEM/IDS platforms (Wazuh, Suricata).
+        <section id="about" className="section">
+            <div className={`container ${styles.layout}`}>
+                <h2 className="tape section-tape">About</h2>
+
+                <div className={styles.body}>
+                    <p className={styles.lead}>
+                        4th-year Computer Engineering student specializing in cybersecurity, network engineering, and threat
+                        triage, certified in Cisco CCNA, CompTIA Security+, ISC2 CC, and Aviatrix ACE.
                     </p>
                     <p className={styles.text}>
-                        Skilled in Linux system administration, and AI-assisted workflows to speed up project delivery, build reliable systems, and maintain clear, thorough documentation. Experienced in building segmented lab environments and developing rapid-prototype security tools, combining technical discipline with modern engineering practices to deliver proactive, well-documented security solutions.
+                        I design resilient network architectures, configure SIEM/IDS platforms, build segmented lab
+                        environments, and prototype security tools. AI-assisted workflows help me ship faster while keeping
+                        documentation clear and thorough.
                     </p>
                 </div>
+
+                <dl className={styles.focus}>
+                    {focus.map((f) => (
+                        <div key={f.k} className={styles.row}>
+                            <dt className="tape tape--white">{f.k}</dt>
+                            <dd>{f.v}</dd>
+                        </div>
+                    ))}
+                </dl>
+            </div>
+            <div className="container">
+                <RackAscii />
             </div>
         </section>
     );

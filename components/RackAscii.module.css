@@ -1,0 +1,50 @@
+.figure {
+    container-type: inline-size;
+    margin-top: clamp(56px, 8vw, 96px);
+}
+
+.pre {
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto;
+    font-family: var(--font-diagram);
+    /* 186 columns wide: scale with the box so it never scrolls, cap for large screens */
+    font-size: min(8px, 0.895cqi);
+    line-height: 1.2;
+    white-space: pre;
+    overflow: hidden;
+    font-variant-ligatures: none;
+    color: var(--ink);
+    user-select: none;
+}
+
+.line {
+    display: inline;
+}
+
+.k0 { font-weight: 700; }
+.k1 { }
+.k2 { color: #4a4a4a; }
+.k3 { color: #8c8c8a; }
+.k4 { color: #c2c2c0; }
+.lbl { font-weight: 700; }
+
+.led-s {
+    font-weight: 700;
+}
+
+.led-a {
+    font-weight: 700;
+    animation: activity 1.7s steps(1, end) infinite;
+    animation-delay: var(--d, 0s);
+}
+
+@keyframes activity {
+    0%, 100% { opacity: 1; }
+    18% { opacity: 0.15; }
+    26% { opacity: 1; }
+    52% { opacity: 0.15; }
+    58% { opacity: 1; }
+}
+
+

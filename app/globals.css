@@ -1,133 +1,169 @@
+/*
+  World: network-closet labeling. Light room, black steel, printed label tape.
+  Palette is strictly monochrome; photos and project screenshots carry the only colour.
+*/
 :root {
-  --background: #ffffff; /* Crisp clean white background */
-  --foreground: #111827; /* Dark slate/charcoal typography */
-  --muted: #6b7280; /* Soft neutral gray */
-  --muted-light: #9ca3af;
-  --surface: #ffffff; /* White card surface */
-  --surface-subtle: #f9fafb; /* Light gray card fill/accent */
-  --surface-hover: #f3f4f6; /* Soft gray hover */
-  --border: #e5e7eb; /* 1px hairline border */
-  --border-dark: #d1d5db;
-  
-  --primary: #111827; /* Dark primary action */
-  --primary-hover: #1f2937;
-  --secondary: #2563eb; /* Sleek accent blue */
-  --accent: #10b981; /* Soft green */
+  --paper: #efefee;
+  --tape-white: #ffffff;
+  --ink: #0e0e0e;
+  --ink-2: #3d3d3d;
+  --ink-3: #5e5e5e;
+  --rule: #cdcdcb;
+  --rule-strong: #0e0e0e;
+  --steel: #151515;
+  --steel-2: #232323;
+  --steel-print: #e9e9e9;
+  --led: #ffffff;
 
-  --font-sans: 'Plus Jakarta Sans', var(--font-sans), system-ui, -apple-system, sans-serif;
+  --font: 'Archivo Variable', 'Archivo', system-ui, sans-serif;
+  --font-diagram: 'JetBrains Mono', ui-monospace, monospace;
 
-  --max-width: 1000px; /* Clean compact page width like Notion */
-  --nav-height: 64px;
+  --max: 1200px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --nav-h: 60px;
 
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 14px;
-  --radius-full: 9999px;
+  /* Corner rule: tape 2px, controls 4px, media 6px. Nothing rounder. */
+  --r-tape: 2px;
+  --r-ctl: 4px;
+  --r-media: 6px;
 
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.06), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
-  --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.08);
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
 
-  --transition-fast: 0.15s ease;
-  --transition-medium: 0.25s ease;
+  --z-nav: 10;
+  --z-skip: 20;
+
+  color-scheme: light;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-  background-color: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans);
+html {
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-h) + 16px);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font);
+  font-stretch: 100%;
+  font-size: 1rem;
   line-height: 1.6;
+  font-variant-numeric: tabular-nums;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  caret-color: var(--ink);
+  overflow-x: clip;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--background);
-}
-
-::-webkit-scrollbar-thumb {
-  background: #d1d5db;
-  border-radius: var(--radius-full);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #9ca3af;
-}
-
-/* Selection */
 ::selection {
-  background: #e5e7eb;
-  color: #111827;
+  background: var(--ink);
+  color: var(--tape-white);
 }
+
+::-webkit-scrollbar { width: 12px; height: 12px; }
+::-webkit-scrollbar-track { background: var(--paper); }
+::-webkit-scrollbar-thumb { background: var(--ink); border: 4px solid var(--paper); border-radius: 0; }
+html { scrollbar-color: var(--ink) var(--paper); }
 
 a {
   color: inherit;
   text-decoration: none;
-  transition: all var(--transition-fast);
+}
+
+p a,
+.u-link {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
 }
 
 img {
+  display: block;
   max-width: 100%;
   height: auto;
-  display: block;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  line-height: 1.25;
+h1, h2, h3, h4 {
+  line-height: 1.1;
   font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--foreground);
+  text-wrap: balance;
 }
 
-section {
-  padding: 50px 20px;
-  position: relative;
-}
+p { text-wrap: pretty; }
 
-/* Utilities */
 .container {
-  max-width: var(--max-width);
+  width: 100%;
+  max-width: var(--max);
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 var(--gutter);
 }
 
-.section-title {
-  font-size: 2.2rem;
-  font-weight: 800;
-  margin-bottom: 28px;
-  color: var(--foreground);
-  letter-spacing: -0.03em;
-  display: flex;
-  align-items: center;
-  gap: 12px;
+.section {
+  padding: clamp(72px, 10vw, 136px) 0 clamp(80px, 11vw, 148px);
 }
 
-@media (max-width: 768px) {
-  .section-title {
-    font-size: 1.75rem;
-  }
+/* Printed label tape: the page's one component language */
+.tape {
+  display: inline-block;
+  background: var(--ink);
+  color: var(--tape-white);
+  font-stretch: 72%;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  padding: 0.38em 0.6em 0.34em;
+  border-radius: var(--r-tape);
+  box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.28);
+  white-space: nowrap;
+}
 
-  section {
-    padding: 36px 16px;
+.tape--white {
+  background: var(--tape-white);
+  color: var(--ink);
+}
+
+.section-tape {
+  font-size: clamp(1.7rem, 3.6vw, 2.8rem);
+  margin-bottom: clamp(36px, 5vw, 64px);
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -64px;
+  z-index: var(--z-skip);
+  transition: top 200ms var(--ease);
+}
+
+.skip-link:focus { top: 12px; }
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

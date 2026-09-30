@@ -1,5 +1,8 @@
+import { ArrowUpRight } from '@phosphor-icons/react/dist/ssr';
 import styles from './ResumeSection.module.css';
 import { getImagePath } from '@/utils/basePath';
+
+type Entry = { title: string; org: string; period: string; bullets?: string[]; note?: string };
 
 const technicalExperience = [
     {
@@ -71,148 +74,84 @@ const technicalSkills = [
     }
 ];
 
+const groups: { label: string; entries: Entry[] }[] = [
+    {
+        label: 'Work',
+        entries: technicalExperience.map((e) => ({ title: e.role, org: e.company, period: e.period, bullets: e.bullets })),
+    },
+    {
+        label: 'Projects',
+        entries: technicalProjects.map((e) => ({ title: e.role, org: e.company, period: e.period, bullets: e.bullets })),
+    },
+    {
+        label: 'Leadership',
+        entries: leadershipExperience.map((e) => ({ title: e.role, org: e.company, period: e.period, bullets: e.bullets })),
+    },
+    {
+        label: 'Education',
+        entries: education.map((e) => ({ title: e.degree, org: e.school, period: e.period.replace('Graduation: ', 'Grad. '), note: e.description })),
+    },
+];
+
 const ResumeSection = () => {
     return (
-        <section id="resume" className={styles.section}>
+        <section id="experience" className={`section ${styles.section}`}>
             <div className="container">
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px', marginBottom: '24px' }}>
-                    <h2 className="section-title" style={{ margin: 0 }}>Resume & Experience</h2>
-                    <a 
-                        href={getImagePath('/resume/DELOS ANGELES RESUME.pdf')} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        style={{
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: '6px',
-                            padding: '8px 16px',
-                            background: 'var(--surface)',
-                            color: 'var(--foreground)',
-                            border: '1px solid var(--border)',
-                            borderRadius: 'var(--radius-sm)',
-                            fontSize: '0.85rem',
-                            fontWeight: 600,
-                            textDecoration: 'none'
-                        }}
+                <div className={styles.head}>
+                    <h2 className="tape section-tape">Experience</h2>
+                    <a
+                        href={getImagePath('/resume/DELOS ANGELES RESUME.pdf')}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.cvLink}
                     >
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                            <polyline points="7 10 12 15 17 10"/>
-                            <line x1="12" x2="12" y1="15" y2="3"/>
-                        </svg>
-                        Download PDF CV
+                        View CV
+                        <ArrowUpRight size={16} weight="bold" aria-hidden="true" />
                     </a>
                 </div>
 
-                {/* Experience */}
-                <div className={styles.category}>
-                    <h3 className={styles.categoryTitle}>Experience</h3>
-                    <div className={styles.timeline}>
-                        {technicalExperience.map((item, index) => (
-                            <div key={index} className={styles.timelineItem}>
-                                <div className={styles.marker}></div>
-                                <div className={styles.content}>
-                                    <div className={styles.header}>
-                                        <h4 className={styles.role}>{item.role}</h4>
-                                        <span className={styles.company}>{item.company}</span>
-                                        <span className={styles.period}>{item.period}</span>
-                                    </div>
-                                    <ul className={styles.bulletList}>
-                                        {item.bullets.map((bullet, bIndex) => (
-                                            <li key={bIndex} className={styles.bulletItem}>{bullet}</li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+                <div className={styles.groups}>
+                    {groups.map((group) => (
+                        <div key={group.label} className={styles.group}>
+                            <h3 className={styles.groupLabel}>{group.label}</h3>
+                            <ol className={styles.entries}>
+                                {group.entries.map((item) => (
+                                    <li key={item.title} className={styles.entry}>
+                                        <p className={styles.period}>{item.period}</p>
+                                        <div>
+                                            <h4 className={styles.role}>{item.title}</h4>
+                                            <p className={styles.org}>{item.org}</p>
+                                            {item.bullets && (
+                                                <ul className={styles.bullets}>
+                                                    {item.bullets.map((b) => (
+                                                        <li key={b}>{b}</li>
+                                                    ))}
+                                                </ul>
+                                            )}
+                                            {item.note && <p className={styles.note}>{item.note}</p>}
+                                        </div>
+                                    </li>
+                                ))}
+                            </ol>
+                        </div>
+                    ))}
                 </div>
 
-                {/* Technical Projects */}
-                <div className={styles.category}>
-                    <h3 className={styles.categoryTitle}>Technical Projects</h3>
-                    <div className={styles.timeline}>
-                        {technicalProjects.map((item, index) => (
-                            <div key={index} className={styles.timelineItem}>
-                                <div className={styles.marker}></div>
-                                <div className={styles.content}>
-                                    <div className={styles.header}>
-                                        <h4 className={styles.role}>{item.role}</h4>
-                                        <span className={styles.company}>{item.company}</span>
-                                        <span className={styles.period}>{item.period}</span>
-                                    </div>
-                                    <ul className={styles.bulletList}>
-                                        {item.bullets.map((bullet, bIndex) => (
-                                            <li key={bIndex} className={styles.bulletItem}>{bullet}</li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Leadership Experience */}
-                <div className={styles.category}>
-                    <h3 className={styles.categoryTitle}>Leadership Experience</h3>
-                    <div className={styles.timeline}>
-                        {leadershipExperience.map((item, index) => (
-                            <div key={index} className={styles.timelineItem}>
-                                <div className={styles.marker}></div>
-                                <div className={styles.content}>
-                                    <div className={styles.header}>
-                                        <h4 className={styles.role}>{item.role}</h4>
-                                        <span className={styles.company}>{item.company}</span>
-                                        <span className={styles.period}>{item.period}</span>
-                                    </div>
-                                    <ul className={styles.bulletList}>
-                                        {item.bullets.map((bullet, bIndex) => (
-                                            <li key={bIndex} className={styles.bulletItem}>{bullet}</li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Education */}
-                <div className={styles.category}>
-                    <h3 className={styles.categoryTitle}>Education</h3>
-                    <div className={styles.timeline}>
-                        {education.map((item, index) => (
-                            <div key={index} className={styles.timelineItem}>
-                                <div className={styles.marker}></div>
-                                <div className={styles.content}>
-                                    <div className={styles.header}>
-                                        <h4 className={styles.role}>{item.degree}</h4>
-                                        <span className={styles.company}>{item.school}</span>
-                                        <span className={styles.period}>{item.period}</span>
-                                    </div>
-                                    <p className={styles.description}>{item.description}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Technical Skills */}
-                <div className={styles.category}>
-                    <h3 className={styles.categoryTitle}>Technical Skills</h3>
+                <div className={styles.skills}>
+                    <h3 className={styles.skillsTitle}>Technical skills</h3>
                     <div className={styles.skillsGrid}>
-                        {technicalSkills.map((group, index) => (
-                            <div key={index} className={styles.skillGroup}>
-                                <h4 className={styles.skillCategoryName}>{group.category}</h4>
-                                <div className={styles.skillPills}>
-                                    {group.skills.map((skill, sIndex) => (
-                                        <span key={sIndex} className={styles.skillPill}>{skill}</span>
+                        {technicalSkills.map((group) => (
+                            <div key={group.category} className={styles.skillGroup}>
+                                <h4 className={styles.skillCategory}>{group.category}</h4>
+                                <ul className={styles.skillList}>
+                                    {group.skills.map((skill) => (
+                                        <li key={skill} className="tape tape--white">{skill}</li>
                                     ))}
-                                </div>
+                                </ul>
                             </div>
                         ))}
                     </div>
                 </div>
-
             </div>
         </section>
     );
